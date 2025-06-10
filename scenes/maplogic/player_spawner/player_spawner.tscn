@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cggprq4n6lwxb"]
+
+[ext_resource type="Script" uid="uid://djmjmp584r3yo" path="res://scenes/maplogic/player_spawner/player_spawner.gd" id="1_q15uj"]
+[ext_resource type="ArrayMesh" uid="uid://c1r8w8xaoek6q" path="res://qodot_levels/models/player_spawn.obj" id="2_s44su"]
+
+[sub_resource type="Gradient" id="Gradient_pvttt"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0, 1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_85ml7"]
+gradient = SubResource("Gradient_pvttt")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s44su"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_85ml7")
+uv1_scale = Vector3(0.3, 0.3, 0.3)
+uv1_triplanar = true
+
+[node name="PlayerSpawner" type="Node3D"]
+script = ExtResource("1_q15uj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.44248e-09, 0, 0.033, 0, 0.033, 0, -0.033, 0, -1.44248e-09, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_s44su")
+mesh = ExtResource("2_s44su")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -3, 0)
+collision_mask = 3

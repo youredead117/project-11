@@ -1,0 +1,193 @@
+@BaseClass
+
+ = Target : "Performs actions (signal callbacks, methods) on entities with a matching 'targetname'." [
+	target(string) : "Name of entity (targetname) to target." : ""
+]
+
+@BaseClass
+
+ = Targetname : "Subscribes to actions (signal callbacks, reciever methods) performed by other entities with a matching 'target'." [
+	targetname(string) : "Name of target to subscribe to." : ""
+]
+
+@BaseClass color(255 255 40)
+
+ = Light[
+	_color(color255) : "Light color" : "255 255 255"
+	delay(choices) : "Attenuation" = [
+		1 : "Inverse distance falloff"
+		2 : "Inverse distance squared"
+		5 : "Inverse distance squared B"
+		0 : "Linear falloff (Default)"
+		4 : "Local minlight"
+		3 : "No falloff"
+	]
+	light(integer) : "Brightness" : 300
+	mangle(string) : "Spotlight angle" : "0.00499999988824 0.0 0.0"
+	wait(integer) : "Fade distance multiplier" : 1
+]
+
+@SolidClass
+
+ = worldspawn : "World Entity" [
+]
+
+@SolidClass
+
+ = group : "Brush Group" [
+]
+
+@SolidClass
+
+ = illusionary : "Non-colliding Brush" [
+]
+
+@SolidClass
+
+ = physics : "Physics Brush" [
+	mass(float) :  : "1.0"
+	velocity(string) :  : "0.0 0.0 0.0"
+]
+
+@PointClass size(-8.0 -8.0 -8.0, 8.0 8.0 8.0) base(Targetname, Target)
+
+ = signal : "Name of signal to call target." [
+	signal_name(string) : "Name of signal to call on target." : ""
+]
+
+@PointClass size(-8.0 -8.0 -8.0, 8.0 8.0 8.0) base(Targetname, Target)
+
+ = receiver : "Calls methods on target." [
+	receiver_name(string) :  : ""
+]
+
+@PointClass size(-8.0 -8.0 -8.0, 8.0 8.0 8.0) base(Light)
+
+ = light : "Invisible light source" [
+	angle(float) : "Rotation Angle" : "0.0"
+]
+
+@SolidClass
+
+ = button : "Interactive button brush." [
+	axis(string) : "Direction of movement when pressed." : "0.0 -1.0 0.0"
+	depth(float) : "How far to move along the axis when pressed." : "0.8"
+	press_signal_delay(float) : "Seconds after press() is called, before emitting is own pressed signal." : "0.0"
+	release_delay(float) : "Seconds after a physics body exits, before calling release()" : "0.0"
+	release_signal_delay(float) : "Seconds after release() is called, before emitting is own released signal." : "0.0"
+	speed(float) : "Delta multiplier for a lerp weight to move the button to its desired position." : "8.0"
+	target(string) :  : ""
+	trigger_signal_delay(float) : "Seconds after press() is called, before emitting the trigger signal." : "0.0"
+]
+
+@SolidClass
+
+ = func_detail : "Detail Brush" [
+]
+
+@SolidClass
+
+ = mover : "Moving brush." [
+	rotation(string) :  : "0.0 0.0 0.0"
+	scale(string) :  : "1.0 1.0 1.0"
+	speed(float) :  : "1.0"
+	targetname(string) :  : ""
+	translation(string) :  : "0.0 0.0 0.0"
+]
+
+@SolidClass
+
+ = rotate : "Rotating Brush" [
+	axis(string) : "Rotation Axis" : "0.0 1.0 0.0"
+	speed(float) : "Rotation Speed" : "360.0"
+]
+
+@SolidClass
+
+ = trigger : "Trigger Volume" [
+	target(string) :  : ""
+]
+
+@SolidClass
+
+ = wall : "Basic entity brush." [
+]
+@SolidClass color(204 204 204)
+
+ = water : "water block" [
+	killer(integer) :  : 0
+]
+
+@PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
+model("models/cavelight.obj")
+ = CaveLight[
+	bake_mode(integer) : "0 - Disabled, 1 - Static, 2 - Dynamic" : 1
+	energy(float) : "energy" : "0.0"
+	range(float) : "range" : "0.0"
+	rotate(integer) :  : 0
+]
+
+@SolidClass color(204 204 204)
+
+ = fog_region : "set parameters for environment fog in this area" [
+	color_b(integer) :  : 0
+	color_g(integer) :  : 0
+	color_r(integer) :  : 0
+	density(float) :  : "0.0"
+	energy(float) :  : "1.0"
+]
+
+@PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
+model("models/flourescent_light_TB.obj")
+ = FL_Light[
+	bake_mode(integer) : "0 - Disabled, 1 - Static, 2 - Dynamic" : 1
+	energy(float) : "energy" : "0.0"
+	range(float) : "range" : "0.0"
+	rotate(integer) :  : 0
+]
+
+@PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
+model("models/PSX_Style_Cars_by_GGBot_(August2023)/Car 08/Car8.obj")
+ = scenery_van[
+	style(integer) :  : 0
+]
+
+@PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
+model("models/player_spawn.obj")
+ = logic_spawner[
+]
+
+@PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
+model("models/PSX_Style_Cars_by_GGBot_(August2023)/Car 05/Car5_Police.obj")
+ = scenery_policecar[
+]
+
+@SolidClass color(204 204 204)
+
+ = structure_seethru : "does not build occluders" [
+]
+
+@PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
+model("models/cavelight.obj")
+ = light_framed_style1[
+	bake_mode(integer) : "0 - Disabled, 1 - Static, 2 - Dynamic" : 1
+	energy(float) : "energy" : "0.0"
+	range(float) : "range" : "0.0"
+	rotate(integer) :  : 0
+]
+
+@SolidClass color(204 204 204)
+
+ = fog_volume : "volumetric fog block" [
+	color_b(integer) :  : 0
+	color_g(integer) :  : 0
+	color_r(integer) :  : 0
+	density(float) :  : "0.0"
+	energy(float) :  : "1.0"
+]
+
+@SolidClass color(204 204 204)
+
+ = scenic_plants : "randomly placed plants" [
+	density(float) :  : "1.0"
+]

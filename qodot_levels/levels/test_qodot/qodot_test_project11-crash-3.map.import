@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cvyryyqvd58kb"
+path="res://.godot/imported/qodot_test_project11-crash-3.map-4153a0ff1278da546c617f92ebcf4d0d.tres"
+
+[deps]
+
+source_file="res://qodot_levels/levels/test_qodot/qodot_test_project11-crash-3.map"
+dest_files=["res://.godot/imported/qodot_test_project11-crash-3.map-4153a0ff1278da546c617f92ebcf4d0d.tres"]
+
+[params]
+

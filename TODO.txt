@@ -1,0 +1,15 @@
+TODO:
+	Major - if host is killed by water, he becomes invisible. Also, if client is killed by water, 
+	they die after respawning once, always, Never the host though.
+	
+	Minor - grating no collision for ragdolls
+
+	
+COMPLETE:
+	Minor - CONSOLE con print done for every member FIX PLS
+	BULLET EFFECTS WORKING ON CLIENT
+	NO ATTACKS AFTER DYING:
+		NO MELEE
+		NO BULLET
+	ONLY RESPAWN IF DEAD
+	KNIFE IS INSTANT

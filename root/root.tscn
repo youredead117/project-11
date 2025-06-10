@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dom4eg32csdst"]
+
+[ext_resource type="Script" uid="uid://lvr5w2ui6h1x" path="res://root/root.gd" id="1_1xv2g"]
+[ext_resource type="PackedScene" uid="uid://djxc6yb8mirf2" path="res://scenes/menu/menu.tscn" id="2_j4b2l"]
+[ext_resource type="PackedScene" uid="uid://dlbqm3otoopfi" path="res://scenes/console/console.tscn" id="3_js5vo"]
+
+[node name="Root" type="Node"]
+physics_interpolation_mode = 1
+script = ExtResource("1_1xv2g")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_j4b2l")]
+
+[node name="Console" parent="." instance=ExtResource("3_js5vo")]
+visible = false
+accepted_commands = Array[StringName]([&"help", &"noclip", &"hurt", &"ultrasupermeditationmaximum", &"exitworld", &"hostinfo", &"permissions", &"team", &"kick", &"mute", &"mute_global", &"friendly_fire", &"set_gravity"])
+command_desc = Array[String](["Provides this list.", "Allows flying and phasing through walls. Syntax: noclip {PLAYER} {true/false}", "Hurts a select player. Syntax: hurt {PLAYER} {amount}", "Enables godmode. Syntax: ultrasupermeditationmaximum {PLAYER} {true/false}", "Exits to main menu. Syntax: exitworld", "Provides IP of the host. Syntax: hostinfo", "Sets the permission of a player. Only allowed if you are the HOST or ADMIN. Syntax: permissions {PLAYER} {Member/Mod/Admin}", "Sets the team of a player. Syntax: team {PLAYER} {red/blue/green/yellow/black/white/purple/brown}", "kicks player", "mutes player", "mutes player globally", "sets friendly fire", "sets the gravity"])

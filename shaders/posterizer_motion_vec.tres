@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://bjeutl4lmsmyk"]
+
+[ext_resource type="Shader" uid="uid://b4fbf0dc7pqse" path="res://shaders/Posterizer_motion_vec.gdshader" id="1_hcr0b"]
+
+[sub_resource type="Gradient" id="Gradient_x1v63"]
+offsets = PackedFloat32Array(0, 0.480874, 0.539162, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.313297, 0.313297, 0.313297, 1, 0.653034, 0.653034, 0.653034, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dv82v"]
+gradient = SubResource("Gradient_x1v63")
+
+[sub_resource type="Gradient" id="Gradient_ff8yk"]
+offsets = PackedFloat32Array(0, 0.367942, 0.632058, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.10929, 0.10929, 0.10929, 1, 0.894758, 0.894758, 0.894758, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j3x07"]
+gradient = SubResource("Gradient_ff8yk")
+
+[sub_resource type="Gradient" id="Gradient_6kpfo"]
+offsets = PackedFloat32Array(0, 0.320583, 0.765027, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.271429, 0.271429, 0.271429, 1, 0.577008, 0.577008, 0.577008, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x33dn"]
+gradient = SubResource("Gradient_6kpfo")
+
+[resource]
+resource_local_to_scene = true
+render_priority = -1
+shader = ExtResource("1_hcr0b")
+shader_parameter/gradient_red = SubResource("GradientTexture1D_x33dn")
+shader_parameter/gradient_green = SubResource("GradientTexture1D_j3x07")
+shader_parameter/gradient_blue = SubResource("GradientTexture1D_dv82v")
+shader_parameter/moblur_iterations = 20
+shader_parameter/darker = 0.0

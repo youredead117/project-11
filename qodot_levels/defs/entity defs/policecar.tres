@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://bgk8s6nlb0ojo"]
+
+[ext_resource type="PackedScene" uid="uid://bmemjtc3l4jk" path="res://scenes/scenery/map/vehicles/policecar.tscn" id="1_613gj"]
+[ext_resource type="Script" uid="uid://864duxc4sbjg" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="2_613gj"]
+
+[resource]
+script = ExtResource("2_613gj")
+scene_file = ExtResource("1_613gj")
+apply_rotation_on_map_build = true
+classname = "scenery_policecar"
+description = ""
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+transient_node = false
+model_path = "uid://c0uvc2bgcri7a"
+metadata/_custom_type_script = "uid://864duxc4sbjg"

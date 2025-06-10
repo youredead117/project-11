@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mhlckqc1f3ql"
+path="res://.godot/imported/Car5.obj-ca7be0e2083ee5554c69dfbe6a7ad79e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Car5.obj-ca7be0e2083ee5554c69dfbe6a7ad79e.mesh"]
+
+source_file="res://qodot_levels/models/PSX_Style_Cars_by_GGBot_(August2023)/Car 05/Car5.obj"
+dest_files=["res://.godot/imported/Car5.obj-ca7be0e2083ee5554c69dfbe6a7ad79e.mesh", "res://.godot/imported/Car5.obj-ca7be0e2083ee5554c69dfbe6a7ad79e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://evsotucibuyy"]
+
+[ext_resource type="Script" uid="uid://1pwrg6r5gylr" path="res://scenes/bullet/bulletimpact.gd" id="1_3dhdp"]
+
+[sub_resource type="Curve" id="Curve_jgy0a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3dhdp"]
+width = 40
+curve = SubResource("Curve_jgy0a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jgy0a"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.03
+scale_curve = SubResource("CurveTexture_3dhdp")
+
+[sub_resource type="Shader" id="Shader_eyi85"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx, unshaded;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	ALBEDO.r *= 5.5;
+	ALBEDO.g *= 5.5;
+	ALBEDO.b *= 5.5;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	ALPHA *= albedo.a * albedo_tex.a;
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_3dhdp"]
+offsets = PackedFloat32Array(0, 0.417989, 0.587302, 1)
+colors = PackedColorArray(1, 0.784314, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.784314, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_on86m"]
+gradient = SubResource("Gradient_3dhdp")
+fill_from = Vector2(1, 0.461538)
+fill_to = Vector2(1, 0.0470085)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4036"]
+render_priority = 0
+shader = SubResource("Shader_eyi85")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_on86m")
+shader_parameter/albedo_texture_size = Vector2i(64, 64)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3dhdp"]
+material = SubResource("ShaderMaterial_i4036")
+top_radius = 0.02
+bottom_radius = 0.02
+radial_segments = 4
+rings = 0
+cap_top = false
+cap_bottom = false
+
+[node name="bulletimpact" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 100
+process_material = SubResource("ParticleProcessMaterial_jgy0a")
+draw_pass_1 = SubResource("CylinderMesh_3dhdp")
+script = ExtResource("1_3dhdp")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+strength = -700.0
+radius = 0.1
+
+[connection signal="finished" from="." to="." method="_on_finished"]

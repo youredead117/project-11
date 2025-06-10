@@ -1,0 +1,126 @@
+Renderer info: NVIDIA GeForce RTX 3060 Ti/PCIe/SSE2 version 4.6.0 NVIDIA 565.90 from NVIDIA Corporation
+Depth buffer bits: 24
+Multisampling enabled
+Adding file system path "D:/trenchbroom\\defaults\\assets"
+Adding file system path "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels\\."
+Loading document from C:\Users\noahc\OneDrive\Documents\project-11\qodot_levels\levels\qodot_test_project11.map
+Adding file system path "D:/trenchbroom\\defaults\\assets"
+Adding file system path "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels\\."
+Adding file system path "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels\\defs"
+Adding file system path "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels\\levels"
+Adding file system path "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels\\textures"
+Loaded entity definition file Project11.fgd
+Loaded texture collection '"textures"'
+Loaded texture collection '"textures\\Bricks"'
+Loaded texture collection '"textures\\Grass"'
+Loaded texture collection '"textures\\Roofs"'
+Loaded texture collection '"textures\\Tile"'
+Loaded texture collection '"textures\\Wood"'
+Loaded texture collection '"textures\\256x256\\Brick"'
+Loaded texture collection '"textures\\256x256\\Dirt"'
+Loaded texture collection '"textures\\256x256\\Elements"'
+Loaded texture collection '"textures\\256x256\\Metal"'
+Loaded texture collection '"textures\\256x256\\Plaster"'
+Loaded texture collection '"textures\\256x256\\Stone"'
+Loaded texture collection '"textures\\256x256\\Tile"'
+Loaded texture collection '"textures\\256x256\\Wood"'
+Loaded "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 692ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 16ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 19ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Created autosave backup at "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\autosave\\qodot_test_project11.9.map"
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 13ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 16ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Created autosave backup at "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\autosave\\qodot_test_project11.10.map"
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 15ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 19ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Reloading texture collections
+Loaded texture collection '"textures"'
+Loaded texture collection '"textures\\Bricks"'
+Loaded texture collection '"textures\\Grass"'
+Loaded texture collection '"textures\\Roofs"'
+Loaded texture collection '"textures\\Tile"'
+Loaded texture collection '"textures\\Wood"'
+Loaded texture collection '"textures\\256x256\\Brick"'
+Loaded texture collection '"textures\\256x256\\Dirt"'
+Loaded texture collection '"textures\\256x256\\Elements"'
+Loaded texture collection '"textures\\256x256\\Metal"'
+Loaded texture collection '"textures\\256x256\\Plaster"'
+Loaded texture collection '"textures\\256x256\\Stone"'
+Loaded texture collection '"textures\\256x256\\Tile"'
+Loaded texture collection '"textures\\256x256\\Wood"'
+Reloading entity definitions
+Loaded entity definition file Project11.fgd
+Created autosave backup at "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\autosave\\qodot_test_project11.11.map"
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Reloading texture collections
+Loaded texture collection '"textures"'
+Loaded texture collection '"textures\\Bricks"'
+Loaded texture collection '"textures\\Grass"'
+Loaded texture collection '"textures\\Roofs"'
+Loaded texture collection '"textures\\Tile"'
+Loaded texture collection '"textures\\Wood"'
+Loaded texture collection '"textures\\256x256\\Brick"'
+Loaded texture collection '"textures\\256x256\\Dirt"'
+Loaded texture collection '"textures\\256x256\\Elements"'
+Loaded texture collection '"textures\\256x256\\Metal"'
+Loaded texture collection '"textures\\256x256\\Plaster"'
+Loaded texture collection '"textures\\256x256\\Stone"'
+Loaded texture collection '"textures\\256x256\\Tile"'
+Loaded texture collection '"textures\\256x256\\Wood"'
+Reloading entity definitions
+Loaded entity definition file Project11.fgd
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 17ms
+Saved "C:\\Users\\noahc\\OneDrive\\Documents\\project-11\\qodot_levels\\levels\\qodot_test_project11.map" in 18ms
+Reloading texture collections
+Loaded texture collection '"textures"'
+Loaded texture collection '"textures\\Bricks"'
+Loaded texture collection '"textures\\Grass"'
+Loaded texture collection '"textures\\Roofs"'
+Loaded texture collection '"textures\\Tile"'
+Loaded texture collection '"textures\\Wood"'
+Loaded texture collection '"textures\\256x256\\Brick"'
+Loaded texture collection '"textures\\256x256\\Dirt"'
+Loaded texture collection '"textures\\256x256\\Elements"'
+Loaded texture collection '"textures\\256x256\\Metal"'
+Loaded texture collection '"textures\\256x256\\Plaster"'
+Loaded texture collection '"textures\\256x256\\Stone"'
+Loaded texture collection '"textures\\256x256\\Tile"'
+Loaded texture collection '"textures\\256x256\\Wood"'
+Reloading entity definitions
+Loaded entity definition file Project11.fgd
+Reloading texture collections
+Loaded texture collection '"textures"'
+Loaded texture collection '"textures\\Bricks"'
+Loaded texture collection '"textures\\Grass"'
+Loaded texture collection '"textures\\Roofs"'
+Loaded texture collection '"textures\\Tile"'
+Loaded texture collection '"textures\\Wood"'
+Loaded texture collection '"textures\\256x256\\Brick"'
+Loaded texture collection '"textures\\256x256\\Dirt"'
+Loaded texture collection '"textures\\256x256\\Elements"'
+Loaded texture collection '"textures\\256x256\\Metal"'
+Loaded texture collection '"textures\\256x256\\Plaster"'
+Loaded texture collection '"textures\\256x256\\Stone"'
+Loaded texture collection '"textures\\256x256\\Tile"'
+Loaded texture collection '"textures\\256x256\\Wood"'
+Reloading entity definitions

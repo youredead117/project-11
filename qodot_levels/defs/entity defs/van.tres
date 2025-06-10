@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=3 format=3 uid="uid://kgvbv6i56j13"]
+
+[ext_resource type="PackedScene" uid="uid://cydtvhssalmo7" path="res://scenes/scenery/map/vehicles/van.tscn" id="1_utq8y"]
+[ext_resource type="Script" uid="uid://864duxc4sbjg" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="2_3447l"]
+
+[resource]
+script = ExtResource("2_3447l")
+scene_file = ExtResource("1_utq8y")
+apply_rotation_on_map_build = true
+classname = "scenery_van"
+description = ""
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"style": 0
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+transient_node = false
+model_path = "uid://c1ks2pwu2dkyl"
+metadata/_custom_type_script = "uid://864duxc4sbjg"

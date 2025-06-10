@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddilsnx84a480"]
+
+[ext_resource type="Script" uid="uid://d2ky64vd6rj6j" path="res://scenes/menu/lobby_info.gd" id="1_eivi2"]
+
+[node name="LobbyInfo" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 15
+script = ExtResource("1_eivi2")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Lobby Name"
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 2
+text = "0/8 Players"
+
+[node name="connect" type="Button" parent="."]
+layout_mode = 2
+text = "Connect"

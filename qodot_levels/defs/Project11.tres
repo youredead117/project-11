@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=31 format=3 uid="uid://c2vm1v3mxeuh5"]
+
+[ext_resource type="Script" uid="uid://dx3tuthhjgcm1" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" id="1_gw0fw"]
+[ext_resource type="Resource" uid="uid://dgm276g7bw8q5" path="res://addons/qodot/game_definitions/fgd/base_classes/target_base_class.tres" id="1_sir2y"]
+[ext_resource type="Resource" uid="uid://ccdjpf5j25aua" path="res://addons/qodot/game_definitions/fgd/base_classes/targetname_base_class.tres" id="2_h56h8"]
+[ext_resource type="Resource" uid="uid://c5o31v30rw7v5" path="res://addons/qodot/game_definitions/fgd/base_classes/light_base_class.tres" id="3_j8tmt"]
+[ext_resource type="Resource" uid="uid://dxp37dladbquv" path="res://addons/qodot/game_definitions/fgd/solid_classes/worldspawn_solid_class.tres" id="4_27i52"]
+[ext_resource type="Resource" uid="uid://cw4s1hnxqetee" path="res://addons/qodot/game_definitions/fgd/solid_classes/func_group_solid_class.tres" id="5_f6t5h"]
+[ext_resource type="Resource" uid="uid://bnbdy0cky2bo" path="res://addons/qodot/game_definitions/fgd/solid_classes/group_solid_class.tres" id="6_icqkq"]
+[ext_resource type="Resource" uid="uid://dy7undvxjvodx" path="res://addons/qodot/game_definitions/fgd/solid_classes/illusionary_solid_class.tres" id="7_st12l"]
+[ext_resource type="Resource" uid="uid://v3fbh0xn5d2h" path="res://addons/qodot/game_definitions/fgd/solid_classes/physics_solid_class.tres" id="8_lf074"]
+[ext_resource type="Resource" uid="uid://bu3h1cvdigp1i" path="res://addons/qodot/game_definitions/fgd/point_classes/signal_point_class.tres" id="9_6oprw"]
+[ext_resource type="Resource" uid="uid://dbh35xj5q8gvc" path="res://addons/qodot/game_definitions/fgd/point_classes/receiver_point_class.tres" id="10_euv2l"]
+[ext_resource type="Resource" uid="uid://ccwosedfa8v8d" path="res://addons/qodot/game_definitions/fgd/point_classes/light_point_class.tres" id="11_4efjw"]
+[ext_resource type="Resource" uid="uid://ckg61cpr5p63l" path="res://addons/qodot/game_definitions/fgd/solid_classes/button_solid_class.tres" id="12_af23p"]
+[ext_resource type="Resource" uid="uid://b8aisardk4k4u" path="res://addons/qodot/game_definitions/fgd/solid_classes/detail_solid_class.tres" id="13_svlw3"]
+[ext_resource type="Resource" uid="uid://b3yn012fy6782" path="res://addons/qodot/game_definitions/fgd/solid_classes/mover_solid_class.tres" id="14_bgxn2"]
+[ext_resource type="Resource" uid="uid://de6w02sa4ckl5" path="res://addons/qodot/game_definitions/fgd/solid_classes/rotate_solid_class.tres" id="15_et010"]
+[ext_resource type="Resource" uid="uid://b70dbh5v15xno" path="res://addons/qodot/game_definitions/fgd/solid_classes/trigger_solid_class.tres" id="16_ss7of"]
+[ext_resource type="Resource" uid="uid://bu2f3lupsjhfp" path="res://addons/qodot/game_definitions/fgd/solid_classes/wall_solid_class.tres" id="17_yj4yp"]
+[ext_resource type="Resource" uid="uid://5vc71el37tvu" path="res://qodot_levels/defs/entity defs/water.tres" id="19_st12l"]
+[ext_resource type="Resource" uid="uid://b3ofr4xbxllm8" path="res://qodot_levels/defs/entity defs/cavelight.tres" id="20_st12l"]
+[ext_resource type="Resource" uid="uid://dho84tlflc5vs" path="res://qodot_levels/defs/entity defs/fog_region.tres" id="21_lf074"]
+[ext_resource type="Resource" uid="uid://dffdyr65ymbl1" path="res://qodot_levels/defs/entity defs/fl_light.tres" id="22_6oprw"]
+[ext_resource type="Resource" uid="uid://kgvbv6i56j13" path="res://qodot_levels/defs/entity defs/van.tres" id="23_euv2l"]
+[ext_resource type="Resource" uid="uid://dknvbsikic4i8" path="res://qodot_levels/defs/entity defs/spawner.tres" id="24_4efjw"]
+[ext_resource type="Resource" uid="uid://bgk8s6nlb0ojo" path="res://qodot_levels/defs/entity defs/policecar.tres" id="25_lf074"]
+[ext_resource type="Resource" uid="uid://ibd2ed42hjvm" path="res://qodot_levels/defs/entity defs/seethru.tres" id="26_6oprw"]
+[ext_resource type="Resource" uid="uid://bq5ee33xptrna" path="res://qodot_levels/defs/entity defs/framelight1.tres" id="27_euv2l"]
+[ext_resource type="Resource" uid="uid://c02uwuhavohmc" path="res://qodot_levels/defs/entity defs/fog_volume.tres" id="28_4efjw"]
+[ext_resource type="Resource" uid="uid://cheo2qpl0owu8" path="res://qodot_levels/defs/entity defs/plants.tres" id="29_af23p"]
+
+[sub_resource type="Resource" id="Resource_ima46"]
+script = ExtResource("1_gw0fw")
+export_file = false
+target_folder = ""
+fgd_name = "Qodot"
+base_fgd_files = Array[Resource]([])
+entity_definitions = Array[Resource]([ExtResource("1_sir2y"), ExtResource("2_h56h8"), ExtResource("3_j8tmt"), ExtResource("4_27i52"), ExtResource("5_f6t5h"), ExtResource("6_icqkq"), ExtResource("7_st12l"), ExtResource("8_lf074"), ExtResource("9_6oprw"), ExtResource("10_euv2l"), ExtResource("11_4efjw"), ExtResource("12_af23p"), ExtResource("13_svlw3"), ExtResource("14_bgxn2"), ExtResource("15_et010"), ExtResource("16_ss7of"), ExtResource("17_yj4yp")])
+
+[resource]
+script = ExtResource("1_gw0fw")
+export_file = false
+target_folder = "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels/defs"
+fgd_name = "Project11"
+base_fgd_files = Array[Resource]([SubResource("Resource_ima46")])
+entity_definitions = Array[Resource]([ExtResource("19_st12l"), ExtResource("20_st12l"), ExtResource("21_lf074"), ExtResource("22_6oprw"), ExtResource("23_euv2l"), ExtResource("24_4efjw"), ExtResource("25_lf074"), ExtResource("26_6oprw"), ExtResource("27_euv2l"), ExtResource("28_4efjw"), ExtResource("29_af23p")])
+metadata/_custom_type_script = "uid://dx3tuthhjgcm1"

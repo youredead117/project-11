@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="QodotFGDPointClass" load_steps=4 format=3 uid="uid://bq5ee33xptrna"]
+
+[ext_resource type="PackedScene" uid="uid://d3pchc5dkla38" path="res://scenes/scenery/lights/cave_light.tscn" id="1_dmf5k"]
+[ext_resource type="Script" uid="uid://864duxc4sbjg" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd" id="2_ls47e"]
+[ext_resource type="Script" uid="uid://c2ejnvpvhp4j4" path="res://scenes/scenery/lights/map_light.gd" id="3_1hx1c"]
+
+[resource]
+script = ExtResource("2_ls47e")
+scene_file = ExtResource("1_dmf5k")
+script_class = ExtResource("3_1hx1c")
+apply_rotation_on_map_build = true
+classname = "light_framed_style1"
+description = ""
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"bake_mode": 1,
+"energy": 0.0,
+"range": 0.0,
+"rotate": 0
+}
+class_property_descriptions = {
+"bake_mode": "0 - Disabled, 1 - Static, 2 - Dynamic",
+"energy": "energy",
+"range": "range"
+}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = ""
+transient_node = false
+model_path = "uid://cmu63o78alhee"
+metadata/_custom_type_script = "uid://864duxc4sbjg"

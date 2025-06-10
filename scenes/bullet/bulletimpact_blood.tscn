@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://pvbehwrhap2n"]
+
+[ext_resource type="Script" uid="uid://1pwrg6r5gylr" path="res://scenes/bullet/bulletimpact.gd" id="1_aidff"]
+
+[sub_resource type="Curve" id="Curve_o50km"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xn0yb"]
+width = 40
+curve = SubResource("Curve_o50km")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qm381"]
+lifetime_randomness = 0.02
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.03
+gravity = Vector3(0, -10, 0)
+scale_curve = SubResource("CurveTexture_xn0yb")
+turbulence_noise_strength = 0.07
+sub_emitter_mode = 1
+sub_emitter_frequency = 4.0
+
+[sub_resource type="Curve" id="Curve_aidff"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.153846, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecnya"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.1
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 4.51
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ve1q2"]
+material = SubResource("StandardMaterial3D_ecnya")
+radius = 0.04
+radial_steps = 4
+section_rings = 2
+cap_top = false
+cap_bottom = false
+curve = SubResource("Curve_aidff")
+
+[node name="bulletimpact" type="GPUParticles3D"]
+emitting = false
+amount = 10
+sub_emitter = NodePath(".")
+lifetime = 0.97
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 100
+trail_lifetime = 0.18
+process_material = SubResource("ParticleProcessMaterial_qm381")
+draw_pass_1 = SubResource("TubeTrailMesh_ve1q2")
+script = ExtResource("1_aidff")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+strength = -450.0
+radius = 0.1
+
+[connection signal="finished" from="." to="." method="_on_finished"]

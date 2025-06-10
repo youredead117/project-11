@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://djxc6yb8mirf2"]
+
+[ext_resource type="Script" uid="uid://dtatrrppxfhjb" path="res://scenes/menu/menu.gd" id="1_klgdb"]
+[ext_resource type="Theme" uid="uid://covhxv40ferrt" path="res://fonts/theme.theme" id="2_mcvr8"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_klgdb")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 271.0
+offset_top = 125.0
+offset_right = -270.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme = ExtResource("2_mcvr8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu
+"
+horizontal_alignment = 1
+
+[node name="Test Level 0" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Test Level 0 (BROKEN RN) :((("
+
+[node name="Qodot Level 1" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host Qodot Level 1"
+
+[node name="lobbies" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/lobbies"]
+layout_mode = 2
+
+[node name="refresh" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Refresh Lobbies"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Test Level 0" to="." method="_on_test_level_0_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Qodot Level 1" to="." method="_on_qodot_level_1_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/refresh" to="." method="_on_refresh_pressed"]

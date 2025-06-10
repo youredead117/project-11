@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqii3qdjvpdmb"]
+
+[ext_resource type="Script" uid="uid://pcuhi8xc20rs" path="res://scenes/scenery/plants/plants_node.gd" id="1_tu160"]
+
+[node name="Plants" type="Node3D"]
+script = ExtResource("1_tu160")
+
+[node name="ray" type="RayCast3D" parent="."]
+target_position = Vector3(0, -2, 0)

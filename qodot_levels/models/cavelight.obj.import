@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmu63o78alhee"
+path="res://.godot/imported/cavelight.obj-50ca178ae7f718c5b1d665059e135cac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cavelight.obj-50ca178ae7f718c5b1d665059e135cac.mesh"]
+
+source_file="res://qodot_levels/models/cavelight.obj"
+dest_files=["res://.godot/imported/cavelight.obj-50ca178ae7f718c5b1d665059e135cac.mesh", "res://.godot/imported/cavelight.obj-50ca178ae7f718c5b1d665059e135cac.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

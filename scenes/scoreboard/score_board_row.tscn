@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce3o84rupevvt"]
+
+[ext_resource type="Script" uid="uid://bphbdydbaaymo" path="res://scenes/scoreboard/score_board_row.gd" id="1_l1t8l"]
+[ext_resource type="Theme" uid="uid://covhxv40ferrt" path="res://fonts/theme.theme" id="1_r82ip"]
+
+[sub_resource type="Gradient" id="Gradient_r82ip"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6jusc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5tiaq"]
+color_ramp = SubResource("Gradient_r82ip")
+noise = SubResource("FastNoiseLite_6jusc")
+
+[node name="ScoreBoardRow" type="HBoxContainer"]
+theme = ExtResource("1_r82ip")
+script = ExtResource("1_l1t8l")
+
+[node name="icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_5tiaq")
+expand_mode = 2
+
+[node name="Player" type="Label" parent="."]
+layout_mode = 2
+text = "Player"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 2
+text = "Score"
+
+[node name="Kills" type="Label" parent="."]
+layout_mode = 2
+text = "Kills"
+
+[node name="Deaths" type="Label" parent="."]
+layout_mode = 2
+text = "Deaths"
+
+[node name="Assists" type="Label" parent="."]
+layout_mode = 2
+text = "Assists"
+
+[node name="Damage" type="Label" parent="."]
+layout_mode = 2
+text = "Damage"

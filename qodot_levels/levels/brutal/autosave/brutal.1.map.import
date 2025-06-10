@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://cfv7x0wrcpwpl"
+path="res://.godot/imported/brutal.1.map-71ef62adb75d28ad70baf26cb06c0658.tres"
+
+[deps]
+
+source_file="res://qodot_levels/levels/brutal/autosave/brutal.1.map"
+dest_files=["res://.godot/imported/brutal.1.map-71ef62adb75d28ad70baf26cb06c0658.tres"]
+
+[params]
+

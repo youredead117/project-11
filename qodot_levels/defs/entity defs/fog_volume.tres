@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="QodotFGDSolidClass" load_steps=3 format=3 uid="uid://c02uwuhavohmc"]
+
+[ext_resource type="Script" uid="uid://c4v1uqt6touhd" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd" id="1_3s3cq"]
+[ext_resource type="Script" uid="uid://blh1m13iyggay" path="res://qodot_levels/defs/entity defs/fog_volume.gd" id="2_3s3cq"]
+
+[resource]
+script = ExtResource("1_3s3cq")
+spawn_type = 2
+build_visuals = false
+use_in_baked_light = false
+shadow_casting_setting = 1
+build_occlusion = false
+render_layers = 1
+collision_shape_type = 1
+collision_layer = 0
+collision_mask = 0
+collision_priority = 1.0
+collision_shape_margin = 0.04
+script_class = ExtResource("2_3s3cq")
+classname = "fog_volume"
+description = "volumetric fog block"
+qodot_internal = false
+base_classes = Array[Resource]([])
+class_properties = {
+"color_b": 0,
+"color_g": 0,
+"color_r": 0,
+"density": 0.0,
+"energy": 1.0
+}
+class_property_descriptions = {}
+meta_properties = {
+"color": Color(0.8, 0.8, 0.8, 1),
+"size": AABB(-8, -8, -8, 8, 8, 8)
+}
+node_class = "Area3D"
+transient_node = false
+model_path = ""
+metadata/_custom_type_script = "uid://c4v1uqt6touhd"

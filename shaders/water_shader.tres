@@ -1,0 +1,54 @@
+[gd_resource type="ShaderMaterial" load_steps=11 format=3 uid="uid://e3f66n6nr5b8"]
+
+[ext_resource type="Shader" uid="uid://cvy2smae2thkd" path="res://shaders/water_shader.gdshader" id="1_j6aso"]
+
+[sub_resource type="Gradient" id="Gradient_j6aso"]
+offsets = PackedFloat32Array(0.706503, 0.74341)
+colors = PackedColorArray(0.0203475, 0.0325725, 0.0716909, 1, 0.506, 0.8579, 0.92, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4ltl1"]
+noise_type = 2
+frequency = 0.0236
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j6aso"]
+seamless = true
+color_ramp = SubResource("Gradient_j6aso")
+noise = SubResource("FastNoiseLite_4ltl1")
+
+[sub_resource type="Gradient" id="Gradient_4ltl1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2r63h"]
+noise_type = 3
+seed = 2
+frequency = 0.0362
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4ltl1"]
+seamless = true
+color_ramp = SubResource("Gradient_4ltl1")
+noise = SubResource("FastNoiseLite_2r63h")
+
+[sub_resource type="Gradient" id="Gradient_7lbkn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bxhnn"]
+noise_type = 2
+frequency = 0.0053
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5fss2"]
+seamless = true
+seamless_blend_skirt = 0.311
+as_normal_map = true
+bump_strength = 32.0
+color_ramp = SubResource("Gradient_7lbkn")
+noise = SubResource("FastNoiseLite_bxhnn")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_j6aso")
+shader_parameter/noise_movement = SubResource("NoiseTexture2D_4ltl1")
+shader_parameter/noise_colour = SubResource("NoiseTexture2D_j6aso")
+shader_parameter/normal_tex = SubResource("NoiseTexture2D_5fss2")
+shader_parameter/speed_scale = 0.085
+shader_parameter/speed_scale_big = 11.695
+shader_parameter/height = 0.405
+shader_parameter/height_big_noise = 0.18
+shader_parameter/size_mesh = Vector2(1.6, 1.4)

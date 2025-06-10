@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://bmdetbtiamas"
+path="res://.godot/imported/qodot_test_project11.2.map-e1943e1432db82250f6bf3d0e23b1867.tres"
+
+[deps]
+
+source_file="res://qodot_levels/levels/autosave/qodot_test_project11.2.map"
+dest_files=["res://.godot/imported/qodot_test_project11.2.map-e1943e1432db82250f6bf3d0e23b1867.tres"]
+
+[params]
+
