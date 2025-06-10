@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=31 format=3 uid="uid://c2vm1v3mxeuh5"]
+[gd_resource type="Resource" script_class="QodotFGDFile" load_steps=32 format=3 uid="uid://c2vm1v3mxeuh5"]
 
 [ext_resource type="Script" uid="uid://dx3tuthhjgcm1" path="res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd" id="1_gw0fw"]
 [ext_resource type="Resource" uid="uid://dgm276g7bw8q5" path="res://addons/qodot/game_definitions/fgd/base_classes/target_base_class.tres" id="1_sir2y"]
@@ -29,6 +29,7 @@
 [ext_resource type="Resource" uid="uid://bq5ee33xptrna" path="res://qodot_levels/defs/entity defs/framelight1.tres" id="27_euv2l"]
 [ext_resource type="Resource" uid="uid://c02uwuhavohmc" path="res://qodot_levels/defs/entity defs/fog_volume.tres" id="28_4efjw"]
 [ext_resource type="Resource" uid="uid://cheo2qpl0owu8" path="res://qodot_levels/defs/entity defs/plants.tres" id="29_af23p"]
+[ext_resource type="Resource" uid="uid://cr4hchxhrieq" path="res://qodot_levels/defs/entity defs/rotating_platform.tres" id="30_svlw3"]
 
 [sub_resource type="Resource" id="Resource_ima46"]
 script = ExtResource("1_gw0fw")
@@ -41,8 +42,8 @@ entity_definitions = Array[Resource]([ExtResource("1_sir2y"), ExtResource("2_h56
 [resource]
 script = ExtResource("1_gw0fw")
 export_file = false
-target_folder = "C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels/defs"
+target_folder = "C:/Users/noahc/OneDrive/Documents/project-11/project-11/qodot_levels/defs"
 fgd_name = "Project11"
 base_fgd_files = Array[Resource]([SubResource("Resource_ima46")])
-entity_definitions = Array[Resource]([ExtResource("19_st12l"), ExtResource("20_st12l"), ExtResource("21_lf074"), ExtResource("22_6oprw"), ExtResource("23_euv2l"), ExtResource("24_4efjw"), ExtResource("25_lf074"), ExtResource("26_6oprw"), ExtResource("27_euv2l"), ExtResource("28_4efjw"), ExtResource("29_af23p")])
+entity_definitions = Array[Resource]([ExtResource("19_st12l"), ExtResource("20_st12l"), ExtResource("21_lf074"), ExtResource("22_6oprw"), ExtResource("23_euv2l"), ExtResource("24_4efjw"), ExtResource("25_lf074"), ExtResource("26_6oprw"), ExtResource("27_euv2l"), ExtResource("28_4efjw"), ExtResource("29_af23p"), ExtResource("30_svlw3")])
 metadata/_custom_type_script = "uid://dx3tuthhjgcm1"

@@ -1,0 +1,14 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+uid="uid://dfu1dg8exfapa"
+path="res://.godot/imported/shitmap.map-72d0304191d9f59821d464bb419cd484.tres"
+
+[deps]
+
+source_file="res://qodot_levels/levels/testing_shitmap/shitmap.map"
+dest_files=["res://.godot/imported/shitmap.map-72d0304191d9f59821d464bb419cd484.tres"]
+
+[params]
+

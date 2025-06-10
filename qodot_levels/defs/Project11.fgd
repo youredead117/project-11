@@ -164,7 +164,7 @@ model("models/PSX_Style_Cars_by_GGBot_(August2023)/Car 05/Car5_Police.obj")
 
 @SolidClass color(204 204 204)
 
- = structure_seethru : "does not build occluders" [
+ = structure_seethru : "does not build occluders, does not cast shadows" [
 ]
 
 @PointClass color(204 204 204) size(-8.0 -8.0 -8.0, 8.0 8.0 8.0)
@@ -190,4 +190,12 @@ model("models/cavelight.obj")
 
  = scenic_plants : "randomly placed plants" [
 	density(float) :  : "1.0"
+]
+
+@SolidClass color(204 204 204)
+
+ = dynamic_platform_rotating[
+	rotation_speed_degrees_x(float) :  : "0.0"
+	rotation_speed_degrees_y(float) :  : "0.0"
+	rotation_speed_degrees_z(float) :  : "0.0"
 ]

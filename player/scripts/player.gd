@@ -203,6 +203,12 @@ func _physics_process(delta: float) -> void:
 	input_process()
 	weapons(delta)
 	
+	general_movement(delta)
+	
+	replicate_values(delta)
+	visual_processes(delta)
+	
+func general_movement(delta: float) -> void:
 	if !dead || god:
 		slide_timer -= delta
 		if noclip:
@@ -217,8 +223,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				lunge_timer = 0.0
 				movement_m4(delta)
-	replicate_values(delta)
-	visual_processes(delta)
 	
 func replicate_values(_delta: float) -> void:
 	vel = velocity
@@ -239,6 +243,7 @@ func weapons(delta: float) -> void:
 		collision_layer = original_collision_layer
 		collision_mask = original_collision_mask
 	timer_m4 -= delta
+	
 	if input.switch:
 		bayonet_equipped = !bayonet_equipped
 		if bayonet_equipped:
@@ -253,8 +258,10 @@ func weapons(delta: float) -> void:
 				i.hide()
 			for i in m4_group:
 				i.show()
+				
 	if countdown_melee > 0.0:
 		countdown_melee -= delta
+		
 	if input.attack_light && !dead:
 		if bayonet_equipped && countdown_melee <= 0.0:
 			done_melee = false
@@ -264,9 +271,11 @@ func weapons(delta: float) -> void:
 					start_lunge(lunge_ray.get_collider())
 			elif lunge_timer <= 0.0:
 				melee_attack()
+				
 	if input.attack_light_const && !dead:
 		if !bayonet_equipped:
 			m4_shot(delta)
+			
 	if input.reload:
 		if dead:
 			Global.root.world.random_spawn_player(self)
@@ -330,16 +339,23 @@ func lunge(delta: float) -> void:
 	if melee_ray.get_collider() is Player:
 		melee_attack()
 	
-func get_platform_movement_vector() -> Vector3:
+func get_platform_movement_vector(must_be_on_floor: bool = true) -> Vector3:
 	var result: Vector3 = Vector3.ZERO
 	
-	if !is_on_floor(): return Vector3.ZERO
+	if (!is_on_floor() && must_be_on_floor): return Vector3.ZERO
 	var ray_col: CollisionObject3D = moving_platform_ray.get_collider()
 	if !ray_col is RotatingPlatform && !ray_col is MovingPlatform: return Vector3.ZERO
 	
+	result = ray_col.test_movement(platform_mover_node, moving_platform_ray.get_collision_point(), self) - global_position
 	
+	if ray_col is RotatingPlatform:
+		rotate_y(ray_col.rotation_speed.y)
 	
 	return result
+
+func jump(vel: float) -> void:
+	velocity.y = vel
+	#velocity += get_platform_movement_vector(false)
 	
 func movement_slide(delta: float) -> void:
 	lerp_head_height(0.75)
@@ -349,6 +365,8 @@ func movement_slide(delta: float) -> void:
 	velocity.z = lerp(velocity.z, resultant.z, 0.04)
 	if !is_on_floor():
 		velocity.y -= Global.root.world.rules.gravity * delta
+	
+	velocity += get_platform_movement_vector()
 	
 	move_and_slide()
 	jump_buffer = 0.1
@@ -373,7 +391,7 @@ func movement_bayonet(delta: float) -> void:
 	else:
 		time_since_air = 0.2
 		if jump_buffer > 0.0 && slide_timer <= 0.0:
-			velocity.y = jump_power
+			jump(jump_power)
 		else:
 			mover.position.z = input_vector.y
 	mover.position.x = clamp(mover.position.x, -max_speed, max_speed)
@@ -382,6 +400,8 @@ func movement_bayonet(delta: float) -> void:
 	
 	velocity.x = lerp(velocity.x, resultant.x, 0.04)
 	velocity.z = lerp(velocity.z, resultant.z, 0.04)
+	
+	velocity += get_platform_movement_vector()
 	
 	move_and_slide()
 	
@@ -407,7 +427,7 @@ func movement_m4(delta: float) -> void:
 	else:
 		time_since_air = 0.2
 		if jump_buffer > 0.0 && slide_timer <= 0.0:
-			velocity.y = jump_power / 1.3
+			jump(jump_power / 1.3)
 		else:
 			mover.position.x = input_vector.x
 			mover.position.z = input_vector.y
@@ -415,6 +435,8 @@ func movement_m4(delta: float) -> void:
 	
 	velocity.x = lerp(velocity.x, resultant.x, 0.04)
 	velocity.z = lerp(velocity.z, resultant.z, 0.04)
+	
+	velocity += get_platform_movement_vector()
 	
 	move_and_slide()
 	

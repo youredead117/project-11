@@ -79,7 +79,7 @@ func build_def_text() -> String:
 	res += QodotUtil.newline()
 	if model_path.length() > 0:
 		var st: String = ProjectSettings.globalize_path(model_path)
-		st = st.replace("C:/Users/noahc/OneDrive/Documents/project-11/qodot_levels/", "")
+		st = st.replace("C:/Users/noahc/OneDrive/Documents/project-11/project-11/qodot_levels/", "")
 		res += 'model("' + st + '")'
 	res += QodotUtil.newline()
 
