@@ -1,5 +1,7 @@
 extends Node
 
+const PORT = 9888
+
 var root: Root
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -43,12 +45,18 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
 		multiplayer.multiplayer_peer = root.enet_peer
 		root.load_qodot_level()
-		root.world.add_player(multiplayer.get_unique_id(), false)
+		var uid = multiplayer.get_unique_id()
+		root.world.add_player(uid, false)
 		if host:
 			Global.root.world.connect_peer_join_signal()
+			Global.root.enet_peer.create_host(Global.PORT)
+		else:
+			Global.root.enet_peer.create_client(uid, Global.PORT)
+	multiplayer.multiplayer_peer = Global.root.enet_peer
 
 func make_steam_lobby() -> void:
 	if lobby_created: return
 	lobby_created = true
+	host = true
 	Steam.createLobby(Steam.LobbyType.LOBBY_TYPE_PUBLIC, 8)
 	

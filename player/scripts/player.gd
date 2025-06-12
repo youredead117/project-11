@@ -226,10 +226,6 @@ func general_movement(delta: float) -> void:
 				movement_m4(delta)
 				
 	calc_momentum(delta)
-	print("mover:")
-	print(mover.position.length())
-	print("momentum:")
-	print(momentum.length())
 	
 func replicate_values(_delta: float) -> void:
 	vel = velocity
