@@ -150,7 +150,6 @@ func get_scoreboard() -> void:
 	Global.root.world.send_world_rules.rpc()
 
 func _ready() -> void:
-	print(name)
 	if is_multiplayer_authority():
 		Global.root.world.player = self
 	
@@ -276,7 +275,7 @@ func weapons(delta: float) -> void:
 				if lunge_ray.get_collider() != self:
 					start_lunge(lunge_ray.get_collider())
 			elif lunge_timer <= 0.0:
-				melee_attack()
+				melee_attack(melee_ray.get_collider())
 				
 	if input.attack_light_const && !dead:
 		if !bayonet_equipped:
@@ -287,13 +286,16 @@ func weapons(delta: float) -> void:
 			Global.root.world.random_spawn_player(self)
 			Global.root.world.heal.rpc(name)
 
-func melee_attack() -> void:
+func melee_attack(target: Player) -> void:
 	if lunge_timer > 0.0:
 		lunge_timer = 0.5
 	lunge_target = null
 	anim_tree.set("parameters/attack_bayonet/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	done_melee = true
-	make_bullet_melee.rpc(camera.global_position, camera.global_rotation, name, 105.0)
+	var target_name: StringName = "NONE"
+	if target != null:
+		target_name = target.name
+	make_bullet_melee.rpc(camera.global_position, camera.global_rotation, target_name, name, 105.0)
 		
 func m4_shot(_delta: float) -> void:
 	if timer_m4 <= 0.0:
@@ -343,7 +345,7 @@ func lunge(delta: float) -> void:
 	move_and_slide()
 	melee_ray.force_raycast_update()
 	if melee_ray.get_collider() is Player:
-		melee_attack()
+		melee_attack(melee_ray.get_collider())
 	
 func get_platform_movement_vector(must_be_on_floor: bool = true) -> Vector3:
 	var result: Vector3 = Vector3.ZERO
@@ -729,7 +731,10 @@ func make_bullet(spawn_pos: Vector3, dir_pos: Vector3, deviation: Vector3, shoot
 	Global.root.world.bullet_spawner.make_bullet_local(spawn_pos, dir_pos, deviation, shooter, _speed, damage, cause)
 	
 @rpc("call_local")
-func make_bullet_melee(pos: Vector3, rot: Vector3, shooter: StringName, damage: float) -> void:
+func make_bullet_melee(pos: Vector3, rot: Vector3, target_name: StringName, shooter: StringName, damage: float) -> void:
+	if target_name != "NONE":
+		Global.root.world.bullet_spawner.make_melee_definite(pos, target_name, shooter, damage)
+		return
 	Global.root.world.bullet_spawner.make_melee(pos, rot, shooter, 105.0)
 
 @rpc("any_peer", "call_local")

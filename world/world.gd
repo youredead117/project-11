@@ -111,7 +111,6 @@ func add_player(peer_id, is_host: bool = false):
 		pos = Vector3(0.0, 5.0, 0.0)
 	add_child(pl)
 	pl.global_position = pos
-	print(peer_id)
 
 func disconnect_player(peer_id: int) -> void:
 	var pl: Player = get_node_or_null(str(peer_id))

@@ -28,3 +28,6 @@ func make_melee(pos: Vector3, rot: Vector3, from_player: StringName, damage: flo
 	bullet.damage = damage
 	bullet.direction = Vector3.ZERO
 	bullet.cause = DeathInfo.Cause.Knife
+
+func make_melee_definite(pos: Vector3, target_name: StringName, from_player: StringName, damage: float) -> void:
+	Global.root.world.request_damage.rpc(StringName(target_name), damage, pos, from_player, DeathInfo.Cause.Knife)

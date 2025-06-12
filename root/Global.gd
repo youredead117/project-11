@@ -51,7 +51,6 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 		multiplayer.multiplayer_peer = Global.root.network_peer
 
 		var uid: int = multiplayer.get_unique_id()
-		print(uid)
 
 		root.load_qodot_level()
 		root.world.add_player(uid, false)
