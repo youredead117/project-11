@@ -9,7 +9,7 @@ var PORT: int = 9888 #NOT USED ANYMORE HAYYAYEHAEA
 var host_ip: String = "NO_HOSTIP" #AND THIS TOO
 var connect_ip: String = "" #AND THIS
 
-var enet_peer = SteamMultiplayerPeer.new()
+var network_peer = SteamMultiplayerPeer.new()
 
 
 func _ready() -> void:
