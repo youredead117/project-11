@@ -226,6 +226,10 @@ func general_movement(delta: float) -> void:
 				movement_m4(delta)
 				
 	calc_momentum(delta)
+	print("mover:")
+	print(mover.position.length())
+	print("momentum:")
+	print(momentum.length())
 	
 func replicate_values(_delta: float) -> void:
 	vel = velocity
@@ -361,8 +365,10 @@ func jump(vel: float) -> void:
 	var original_pos: Vector3 = mover.position
 	momentum += get_platform_movement_vector(false) * 10.0 / speed
 	mover.global_position += momentum
+	mover.position.y = 0.0
 	mover.force_update_transform()
 	momentum = mover.position - original_pos
+	velocity += (mover.global_position - head.global_position) * speed
 	
 	velocity.y = vel
 	jump_buffer = 0.0
@@ -370,6 +376,7 @@ func jump(vel: float) -> void:
 func calc_momentum(_delta: float) -> void:
 	if is_on_floor():
 		momentum = Vector3.ZERO
+	momentum = lerp(momentum, Vector3.ZERO, 0.05)
 	
 func movement_slide(delta: float) -> void:
 	lerp_head_height(0.75)
@@ -384,8 +391,6 @@ func movement_slide(delta: float) -> void:
 		if (height_ray.get_collision_point() - global_position).length() >= 2.0:
 			jump(jump_power)
 			slide_timer = 0.0
-	
-	velocity += momentum
 	
 	move_and_slide()
 	jump_buffer = 0.1
@@ -415,7 +420,8 @@ func movement_bayonet(delta: float) -> void:
 			mover.position.z = input_vector.y
 	mover.position.x = clamp(mover.position.x, -max_speed, max_speed)
 	mover.position.z = clamp(mover.position.z, -max_speed, max_speed)
-	mover.position += momentum
+	mover.position.x += momentum.x
+	mover.position.z += momentum.z
 	var resultant: Vector3 = (mover.global_position - head.global_position) * speed
 	
 	velocity.x = lerp(velocity.x, resultant.x, 0.1)
@@ -452,7 +458,8 @@ func movement_m4(delta: float) -> void:
 			mover.position.x = input_vector.x
 			mover.position.z = input_vector.y
 	
-	mover.position += momentum
+	mover.position.x += momentum.x
+	mover.position.z += momentum.z
 	var resultant: Vector3 = (mover.global_position - head.global_position) * speed
 	
 	velocity.x = lerp(velocity.x, resultant.x, 0.1)
