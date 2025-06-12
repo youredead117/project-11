@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 
 func _on_lobby_made(connect: int, lobby_id: int) -> void:
 	steam_lobby_id = lobby_id
-	Steam.setLobbyData(lobby_id, "name", Steam.getPersonaName())
+	Steam.setLobbyData(lobby_id, "lobby_name_PROJECT11", "PROJECT11: " + Steam.getPersonaName())
 	Steam.setLobbyJoinable(steam_lobby_id, true)
 	host = true
 
@@ -43,15 +43,15 @@ func _on_lobby_join_requested(lobby_id: int, friend_id: int) -> void:
 	
 func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
 	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
-		root.load_qodot_level()
 		var uid = multiplayer.get_unique_id()
-		root.world.add_player(uid, false)
 		if host:
 			Global.root.world.connect_peer_join_signal()
 			Global.root.network_peer.create_host(Global.PORT)
 		else:
 			Global.root.network_peer.create_client(uid, Global.PORT)
-	multiplayer.multiplayer_peer = Global.root.network_peer
+		multiplayer.multiplayer_peer = Global.root.network_peer
+		root.load_qodot_level()
+		root.world.add_player(uid, false)
 
 func make_steam_lobby() -> void:
 	if lobby_created: return

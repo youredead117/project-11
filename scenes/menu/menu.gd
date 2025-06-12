@@ -21,7 +21,7 @@ func on_lobby_match_list(lobbies) -> void:
 	for i: Control in $PanelContainer/MarginContainer/VBoxContainer/lobbies/VBoxContainer.get_children():
 		i.queue_free()
 	for lobby in lobbies:
-		var lobby_name: String = Steam.getLobbyData(lobby, "name")
+		var lobby_name: String = Steam.getLobbyData(lobby, "lobby_name_PROJECT11")
 		var member_count: int = Steam.getNumLobbyMembers(lobby)
 		
 		var lobby_info: LobbyInfo = load("res://scenes/menu/lobby_info.tscn").instantiate()
