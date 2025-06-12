@@ -358,13 +358,16 @@ func get_platform_movement_vector(must_be_on_floor: bool = true) -> Vector3:
 
 func jump(vel: float) -> void:
 	
+	momentum = Vector3.ZERO
+	
 	var original_pos: Vector3 = mover.position
+	var original_pos_global: Vector3 = mover.global_position
 	momentum += get_platform_movement_vector(false) * 10.0 / speed
 	mover.global_position += momentum
 	mover.position.y = 0.0
 	mover.force_update_transform()
 	momentum = mover.position - original_pos
-	velocity += (mover.global_position - head.global_position) * speed
+	velocity += (mover.global_position - original_pos_global) * speed
 	
 	velocity.y = vel
 	jump_buffer = 0.0

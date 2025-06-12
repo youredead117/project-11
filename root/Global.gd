@@ -45,13 +45,14 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
 		var uid = multiplayer.get_unique_id()
 		if host:
-			Global.root.world.connect_peer_join_signal()
 			Global.root.network_peer.create_host(Global.PORT)
 		else:
 			Global.root.network_peer.create_client(uid, Global.PORT)
 		multiplayer.multiplayer_peer = Global.root.network_peer
 		root.load_qodot_level()
 		root.world.add_player(uid, false)
+		if host:
+			Global.root.world.connect_peer_join_signal()
 
 func make_steam_lobby() -> void:
 	if lobby_created: return
