@@ -116,7 +116,6 @@ common/physics_ticks_per_second=128
 rendering_device/pipeline_cache/enable=false
 lights_and_shadows/directional_shadow/size=6000
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
-shading/overrides/force_vertex_shading=true
 anti_aliasing/screen_space_roughness_limiter/enabled=false
 environment/volumetric_fog/volume_size=250
 environment/volumetric_fog/volume_depth=200

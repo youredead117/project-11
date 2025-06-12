@@ -37,6 +37,7 @@ const CAM_SENSITIVITY: float = 0.0025
 @onready var mover_noclip = $Head/Cam/MoverNoclip
 @export var jump_power: float = 5.0
 var jump_buffer: float = 0.0
+var momentum: Vector3 = Vector3.ZERO
 @export var speed: float = 8.0
 @export var max_speed: float = 5.0
 var time_since_air: float = 0.2
@@ -223,6 +224,8 @@ func general_movement(delta: float) -> void:
 			else:
 				lunge_timer = 0.0
 				movement_m4(delta)
+				
+	calc_momentum(delta)
 	
 func replicate_values(_delta: float) -> void:
 	vel = velocity
@@ -354,19 +357,35 @@ func get_platform_movement_vector(must_be_on_floor: bool = true) -> Vector3:
 	return result
 
 func jump(vel: float) -> void:
+	
+	var original_pos: Vector3 = mover.position
+	momentum += get_platform_movement_vector(false) * 10.0 / speed
+	mover.global_position += momentum
+	mover.force_update_transform()
+	momentum = mover.position - original_pos
+	
 	velocity.y = vel
-	#velocity += get_platform_movement_vector(false)
+	jump_buffer = 0.0
+	
+func calc_momentum(_delta: float) -> void:
+	if is_on_floor():
+		momentum = Vector3.ZERO
 	
 func movement_slide(delta: float) -> void:
 	lerp_head_height(0.75)
 	var resultant: Vector3 = (mover.global_position - head.global_position) * speed * (1.0 + slide_timer * slide_timer)
 	
-	velocity.x = lerp(velocity.x, resultant.x, 0.04)
-	velocity.z = lerp(velocity.z, resultant.z, 0.04)
+	velocity.x = lerp(velocity.x, resultant.x, 0.1)
+	velocity.z = lerp(velocity.z, resultant.z, 0.1)
 	if !is_on_floor():
 		velocity.y -= Global.root.world.rules.gravity * delta
 	
-	velocity += get_platform_movement_vector()
+	if height_ray.get_collider():
+		if (height_ray.get_collision_point() - global_position).length() >= 2.0:
+			jump(jump_power)
+			slide_timer = 0.0
+	
+	velocity += momentum
 	
 	move_and_slide()
 	jump_buffer = 0.1
@@ -396,12 +415,13 @@ func movement_bayonet(delta: float) -> void:
 			mover.position.z = input_vector.y
 	mover.position.x = clamp(mover.position.x, -max_speed, max_speed)
 	mover.position.z = clamp(mover.position.z, -max_speed, max_speed)
+	mover.position += momentum
 	var resultant: Vector3 = (mover.global_position - head.global_position) * speed
 	
-	velocity.x = lerp(velocity.x, resultant.x, 0.04)
-	velocity.z = lerp(velocity.z, resultant.z, 0.04)
+	velocity.x = lerp(velocity.x, resultant.x, 0.1)
+	velocity.z = lerp(velocity.z, resultant.z, 0.1)
 	
-	velocity += get_platform_movement_vector()
+	get_platform_movement_vector()
 	
 	move_and_slide()
 	
@@ -431,12 +451,16 @@ func movement_m4(delta: float) -> void:
 		else:
 			mover.position.x = input_vector.x
 			mover.position.z = input_vector.y
+	
+	mover.position += momentum
 	var resultant: Vector3 = (mover.global_position - head.global_position) * speed
 	
-	velocity.x = lerp(velocity.x, resultant.x, 0.04)
-	velocity.z = lerp(velocity.z, resultant.z, 0.04)
+	velocity.x = lerp(velocity.x, resultant.x, 0.1)
+	velocity.z = lerp(velocity.z, resultant.z, 0.1)
 	
-	velocity += get_platform_movement_vector()
+	get_platform_movement_vector()
+	
+	velocity += momentum
 	
 	move_and_slide()
 	

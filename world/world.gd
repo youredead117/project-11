@@ -17,9 +17,23 @@ var players: Array[Player]
 var rules: WorldRules = WorldRules.new()
 
 @onready var scoreboard: ScoreBoard = load("res://scenes/scoreboard/scoreboard.tscn").instantiate()
+var server_uptime: float = 0.0
+var round_time_elapsed: float = 0.0
 
 func _ready() -> void:
 	add_child(scoreboard)
+	
+func _physics_process(delta: float) -> void:
+	server_uptime += delta
+	round_time_elapsed += delta
+	
+@rpc("any_peer", "call_remote")
+func request_sync_time() -> void:
+	sync_time.rpc(server_uptime, round_time_elapsed)
+	
+@rpc("authority", "call_remote")
+func sync_time(server: float, round: float) -> void:
+	pass
 	
 @rpc("any_peer", "call_local")
 func send_players_list() -> void:

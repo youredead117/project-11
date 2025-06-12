@@ -5,10 +5,13 @@ class_name RotatingPlatform
 
 var rotation_speed: Vector3
 
+var rotation_speed_move: Vector3
+
 func _ready() -> void:
 	rotation_speed.x = deg_to_rad(properties["rotation_speed_degrees_x"])
 	rotation_speed.y = deg_to_rad(properties["rotation_speed_degrees_y"])
 	rotation_speed.z = deg_to_rad(properties["rotation_speed_degrees_z"])
+	rotation_speed_move = rotation_speed
 	rotation_speed /= Engine.physics_ticks_per_second
 
 func test_movement(test_node: Node3D, global_pos: Vector3, from_player: Player) -> Vector3:
@@ -31,7 +34,7 @@ func test_movement(test_node: Node3D, global_pos: Vector3, from_player: Player) 
 	return new_global_pos
 
 func step_movement() -> void:
-	rotation += rotation_speed
+	rotation.y = rotation_speed_move.y * Global.root.world.round_time_elapsed
 
 func _physics_process(delta: float) -> void:
 	step_movement()

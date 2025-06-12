@@ -24,7 +24,7 @@ void fragment() {
 	ALBEDO.r = clamp(ALBEDO.r * div, 0.0, 1.0);
 	ALBEDO.g = clamp(ALBEDO.g * div, 0.0, 1.0);
 	ALBEDO.b = clamp(ALBEDO.b * div, 0.0, 1.0);
-	
+
 	vec4 hud_tex = texture(hud_viewport, vec2(FRAGCOORD.x, FRAGCOORD.y) / VIEWPORT_SIZE);
 	ALBEDO.r += hud_tex.r * 0.8;
 	ALBEDO.g += hud_tex.g;
