@@ -27,7 +27,6 @@ Global="*res://root/Global.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=2

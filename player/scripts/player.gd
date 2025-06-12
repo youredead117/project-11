@@ -150,6 +150,10 @@ func get_scoreboard() -> void:
 	Global.root.world.send_world_rules.rpc()
 
 func _ready() -> void:
+	print(name)
+	if is_multiplayer_authority():
+		Global.root.world.player = self
+	
 	Global.root.world.player_joined(name)
 	Global.root.world.players.append(self)
 		
@@ -167,7 +171,6 @@ func _ready() -> void:
 	
 	if not is_multiplayer_authority(): return
 	get_scoreboard()
-	Global.root.world.player = self
 	
 	username = Global.steam_username
 	#PERMS
