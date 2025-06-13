@@ -33,7 +33,8 @@ func request_sync_time() -> void:
 	
 @rpc("authority", "call_remote")
 func sync_time(server: float, round: float) -> void:
-	pass
+	server_uptime = server
+	round_time_elapsed = round
 	
 @rpc("any_peer", "call_local")
 func send_players_list() -> void:

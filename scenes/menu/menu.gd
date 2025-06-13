@@ -22,8 +22,9 @@ func on_lobby_match_list(lobbies) -> void:
 		i.queue_free()
 	for lobby in lobbies:
 		var lobby_name: String = Steam.getLobbyData(lobby, "lobby_name_PROJECT11")
-		var member_count: int = Steam.getNumLobbyMembers(lobby)
-		
-		var lobby_info: LobbyInfo = load("res://scenes/menu/lobby_info.tscn").instantiate()
-		$PanelContainer/MarginContainer/VBoxContainer/lobbies/VBoxContainer.add_child(lobby_info)
-		lobby_info.set_info(lobby_name, member_count, 8, lobby)
+		if lobby_name.begins_with("PROJECT11: "):
+			var member_count: int = Steam.getNumLobbyMembers(lobby)
+			
+			var lobby_info: LobbyInfo = load("res://scenes/menu/lobby_info.tscn").instantiate()
+			$PanelContainer/MarginContainer/VBoxContainer/lobbies/VBoxContainer.add_child(lobby_info)
+			lobby_info.set_info(lobby_name, member_count, 8, lobby)

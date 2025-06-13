@@ -241,12 +241,13 @@ func _process(delta: float) -> void:
 
 func weapons(delta: float) -> void:
 	lunge_timer -= delta
-	if lunge_timer > 0.0:
-		collision_layer = lunging_collision_layer
-		collision_mask = lunging_collision_layer
-	else:
-		collision_layer = original_collision_layer
-		collision_mask = original_collision_mask
+	if !noclip:
+		if lunge_timer > 0.0:
+			collision_layer = lunging_collision_layer
+			collision_mask = lunging_collision_layer
+		else:
+			collision_layer = original_collision_layer
+			collision_mask = original_collision_mask
 	timer_m4 -= delta
 	
 	if input.switch:
@@ -696,6 +697,13 @@ func ragdoll() -> void:
 	for i in $vis/PhysicalBoneSimulator3D.get_children():
 		if i is PhysicalBone3D:
 			i.linear_velocity = vel
+			const rand_impulse = 1.5
+			var vec_rand: Vector3 = Vector3(	Global.util.true_rng.randf_range(-rand_impulse, rand_impulse),
+												Global.util.true_rng.randf_range(-rand_impulse, rand_impulse),
+												Global.util.true_rng.randf_range(-rand_impulse, rand_impulse))
+												
+			i.apply_central_impulse(vec_rand)
+			i.gravity_scale = Global.root.world.rules.gravity / 9.81
 		
 func set_godmode(val: bool) -> void:
 	god = val
