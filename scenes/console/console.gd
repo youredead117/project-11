@@ -1,6 +1,8 @@
 extends CanvasLayer
 class_name Console
 
+#TODO: Press up or down to cycle between previous commands
+
 @onready var history: Label = $PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/history
 @onready var command: LineEdit = $PanelContainer/MarginContainer/VBoxContainer/command
 

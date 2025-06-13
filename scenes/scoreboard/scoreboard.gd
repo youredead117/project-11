@@ -16,8 +16,10 @@ var all_data: Array[ScoreBoardElement]
 @onready var cont: PanelContainer = $PanelContainer
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("tab"):
-		visible = !visible
+	if Input.is_action_pressed("tab"):
+		visible = true
+	else:
+		visible = false
 
 func make_new_element(n: StringName) -> void:
 	var element: ScoreBoardElement = ScoreBoardElement.new()

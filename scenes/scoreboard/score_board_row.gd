@@ -14,14 +14,16 @@ var has_setup: bool = false
 										$Damage,
 										$Score]
 
+func _ready() -> void:
+	Steam.avatar_loaded.connect(_on_loaded_avatar)
+
 func setup(id: int) -> void:
 	player_id = id
-	Steam.avatar_loaded.connect(_on_loaded_avatar)
-	Steam.getPlayerAvatar(Steam.AVATAR_SMALL, player_id)
+	await get_tree().create_timer(0.1).timeout
+	Steam.getPlayerAvatar(2, player_id)
 
-func _on_loaded_avatar(user_id: int, avatar_size: int, avatar_buffer: PackedByteArray) -> void:
+func _on_loaded_avatar(user_id: int, avatar_size: int, avatar_buffer: PoolByteArray) -> void:
 	
-	if user_id != player_id: return
 	print("Avatar for user: %s" % user_id)
 	print("Size: %s" % avatar_size)
 	

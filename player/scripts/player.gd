@@ -287,14 +287,14 @@ func weapons(delta: float) -> void:
 			Global.root.world.random_spawn_player(self)
 			Global.root.world.heal.rpc(name)
 
-func melee_attack(target: Player) -> void:
+func melee_attack(target: CollisionObject3D) -> void:
 	if lunge_timer > 0.0:
 		lunge_timer = 0.5
 	lunge_target = null
 	anim_tree.set("parameters/attack_bayonet/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	done_melee = true
 	var target_name: StringName = "NONE"
-	if target != null:
+	if target is Player:
 		target_name = target.name
 	make_bullet_melee.rpc(camera.global_position, camera.global_rotation, target_name, name, 105.0)
 		
