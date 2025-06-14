@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce3o84rupevvt"]
+[gd_scene load_steps=7 format=3 uid="uid://ce3o84rupevvt"]
 
 [ext_resource type="Script" uid="uid://bphbdydbaaymo" path="res://scenes/scoreboard/score_board_row.gd" id="1_l1t8l"]
 [ext_resource type="Theme" uid="uid://covhxv40ferrt" path="res://fonts/theme.theme" id="1_r82ip"]
@@ -11,6 +11,8 @@
 color_ramp = SubResource("Gradient_r82ip")
 noise = SubResource("FastNoiseLite_6jusc")
 
+[sub_resource type="LabelSettings" id="LabelSettings_r82ip"]
+
 [node name="ScoreBoardRow" type="HBoxContainer"]
 theme = ExtResource("1_r82ip")
 script = ExtResource("1_l1t8l")
@@ -21,9 +23,10 @@ layout_mode = 2
 texture = SubResource("NoiseTexture2D_5tiaq")
 expand_mode = 2
 
-[node name="Player" type="Label" parent="."]
+[node name="Player--" type="Label" parent="."]
 layout_mode = 2
 text = "Player"
+label_settings = SubResource("LabelSettings_r82ip")
 
 [node name="Score" type="Label" parent="."]
 layout_mode = 2

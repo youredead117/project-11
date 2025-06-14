@@ -3,11 +3,11 @@ class_name World
 
 var player: Player
 
+@onready var qodot_map: QodotMap = $QodotMap
+var map_info: MapItem
+
 @onready var environment = $WorldEnvironment.environment
 @export var environment_setter: Environment
-
-@onready var bullet_spawner: BulletSpawner = $BulletSpawner
-var player_spawners: Array[PlayerSpawner]
 
 var players: Array[Player]
 
@@ -17,6 +17,9 @@ var players: Array[Player]
 var rules: WorldRules = WorldRules.new()
 
 @onready var scoreboard: ScoreBoard = load("res://scenes/scoreboard/scoreboard.tscn").instantiate()
+@onready var bullet_spawner: BulletSpawner = $BulletSpawner
+var player_spawners: Array[PlayerSpawner]
+
 var server_uptime: float = 0.0
 var round_time_elapsed: float = 0.0
 

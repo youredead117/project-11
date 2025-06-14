@@ -11,18 +11,14 @@ var connect_ip: String = "" #AND THIS
 
 var network_peer = SteamMultiplayerPeer.new()
 
+@export var text_shrink_rate: float = 0.055
 
 func _ready() -> void:
 	Global.root = self
 	
-func load_test_level() -> void:
-	world = load("res://world/world.tscn").instantiate()
-	self.add_child(world)
-	menu.queue_free()
-	
-func load_qodot_level() -> void:
+func load_level() -> void:
 	if world != null: return
-	world = load("res://world/qodot_test.tscn").instantiate()
+	world = menu.selected_map.map_scene.instantiate()
 	world.set_multiplayer_authority(1)
 	self.add_child(world)
 	menu.queue_free()

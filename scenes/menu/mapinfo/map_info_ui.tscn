@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://beyi2jsfhtidx"]
+
+[ext_resource type="Script" uid="uid://dikwuofj8uusp" path="res://scenes/menu/mapinfo/map_info_ui.gd" id="1_acc2d"]
+[ext_resource type="Theme" uid="uid://covhxv40ferrt" path="res://fonts/theme.theme" id="2_6h07y"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_acc2d"]
+
+[node name="MapInfo" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+script = ExtResource("1_acc2d")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(128, 28)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_6h07y")
+theme_override_font_sizes/font_size = 13
+text = "MAP NAME"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = SubResource("PlaceholderTexture2D_acc2d")
+expand_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

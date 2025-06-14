@@ -65,6 +65,7 @@ var dead: bool = false
 const bullet_impact_blood = preload("res://scenes/bullet/bulletimpact_blood.tscn")
 @export var username_display: Label3D
 @export var ragdoll_cam: RagdollCam
+var screenshotting: bool = false
 
 #visual UI
 @export var velocity_reading: Label3D
@@ -110,6 +111,7 @@ var death_info: DeathInfo = DeathInfo.new()
 var username_iteration_number: int = 0
 var muted_local: bool = false
 var muted_global: bool = false
+@export var steam_player_id: int
 
 var damagers: Dictionary = {}
 
@@ -169,6 +171,7 @@ func _ready() -> void:
 		i.hide()
 	
 	if not is_multiplayer_authority(): return
+	steam_player_id = Global.steam_id
 	get_scoreboard()
 	
 	username = Global.steam_username
@@ -235,6 +238,8 @@ func replicate_values(_delta: float) -> void:
 func _process(delta: float) -> void:
 	visual_processes_non_authority()
 	if not is_multiplayer_authority(): return
+	if Input.is_action_just_pressed("screenshot"):
+		screenshot()
 	process_fps(delta)
 	fog_region_process()
 
@@ -535,7 +540,8 @@ func visual_processes(delta: float) -> void:
 		$"Head/Cam/posterizer LAYER 2".hide()
 	else:
 		$Head/Cam/posterizer.position = Vector3.ZERO
-		$"Head/Cam/posterizer LAYER 2".show()
+		if !screenshotting:
+			$"Head/Cam/posterizer LAYER 2".show()
 	
 	var vel_len: float = velocity.length()
 	camera.fov = lerp(camera.fov, 70.0 + clamp(vel_len * 4.0, 20.0, 50.0), 0.06)
@@ -756,3 +762,16 @@ func set_perms(perm: Permissions) -> void:
 		Global.root.world.console.con_print_remote.rpc("Attention: Somebody may have caused an exploit or hacked to try change the host's permissions!", StringName("ALL"))
 		return
 	permissions = perm
+
+func screenshot() -> void:
+	screenshotting = true
+	$"Head/Cam/posterizer LAYER 2".hide()
+	$HUDVP/crosshair.hide()
+	await get_tree().create_timer(0.2).timeout
+	var image = get_viewport().get_texture().get_image()
+	image.resize(540, 540)
+	image.save_png("res://screenshot2.png")
+	print("Screenshot saved!")
+	screenshotting = false
+	$"Head/Cam/posterizer LAYER 2".show()
+	$HUDVP/crosshair.show()

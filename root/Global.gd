@@ -34,8 +34,11 @@ func _process(delta: float) -> void:
 
 func _on_lobby_made(connect: int, lobby_id: int) -> void:
 	steam_lobby_id = lobby_id
+	Steam.setLobbyType(lobby_id, Steam.LobbyType.LOBBY_TYPE_PUBLIC)
 	Steam.setLobbyData(lobby_id, "lobby_name_PROJECT11", "PROJECT11: " + Steam.getPersonaName())
-	Steam.setLobbyJoinable(steam_lobby_id, true)
+	Steam.setLobbyData(lobby_id, "map_name", root.menu.selected_map.map_name)
+	Steam.setLobbyData(lobby_id, "mode_name", "MODE")
+	Steam.setLobbyJoinable(lobby_id, true)
 	host = true
 
 func _on_lobby_join_requested(lobby_id: int, friend_id: int) -> void:
@@ -46,13 +49,26 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 		if host:
 			Global.root.network_peer.create_host(Global.PORT)
 		else:
+			var map_name: String = Steam.getLobbyData(lobby_id, "map_name")
+			var map: MapItem = null
+			
+			for i: MapItem in Global.root.menu.map_list:
+				if i.map_name == map_name:
+					map = i
+					break
+			
+			if !map:
+				print("NO MAP FOUND")
+				return
+			
+			root.menu.selected_map = map
 			Global.root.network_peer.create_client(Steam.getLobbyOwner(lobby_id), Global.PORT)
 
 		multiplayer.multiplayer_peer = Global.root.network_peer
 
 		var uid: int = multiplayer.get_unique_id()
 
-		root.load_qodot_level()
+		root.load_level()
 		root.world.add_player(uid, false)
 
 		if host:
@@ -64,3 +80,18 @@ func make_steam_lobby() -> void:
 	host = true
 	Steam.createLobby(Steam.LobbyType.LOBBY_TYPE_PUBLIC, 8)
 	
+
+func exit() -> void:
+	cleanup_steam_multiplayer()
+	get_tree().quit()
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		exit()
+
+func cleanup_steam_multiplayer():
+	Steam.leaveLobby(Global.steam_lobby_id)
+
+	if multiplayer.multiplayer_peer:
+		multiplayer.multiplayer_peer.close()
+		multiplayer.multiplayer_peer = null

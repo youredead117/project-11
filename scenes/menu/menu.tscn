@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://djxc6yb8mirf2"]
+[gd_scene load_steps=5 format=3 uid="uid://djxc6yb8mirf2"]
 
 [ext_resource type="Script" uid="uid://dtatrrppxfhjb" path="res://scenes/menu/menu.gd" id="1_klgdb"]
 [ext_resource type="Theme" uid="uid://covhxv40ferrt" path="res://fonts/theme.theme" id="2_mcvr8"]
+[ext_resource type="FontFile" uid="uid://chxytblf8nj7o" path="res://fonts/monaspace-krypton-latin-400-normal.ttf" id="3_e0arn"]
+
+[sub_resource type="Theme" id="Theme_037ec"]
+resource_local_to_scene = true
+default_font = ExtResource("3_e0arn")
+Button/colors/font_color = Color(0.88, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.95, 0, 0, 1)
+HBoxContainer/constants/separation = 15
+Label/colors/font_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_klgdb")
@@ -31,22 +40,35 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Main Menu
-"
+text = "PROJECT 11 MAIN MENU"
 horizontal_alignment = 1
 
-[node name="Test Level 0" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-visible = false
+[node name="title maps" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Test Level 0 (BROKEN RN) :((("
+text = "MAPS"
+horizontal_alignment = 1
 
-[node name="Qodot Level 1" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="maps" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Host Qodot Level 1"
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/maps"]
+layout_mode = 2
+
+[node name="host" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "HOST"
+
+[node name="LobbiesTitle" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0 LOBBIES ONLINE:"
+horizontal_alignment = 1
 
 [node name="lobbies" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -55,8 +77,13 @@ layout_mode = 2
 
 [node name="refresh" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Refresh Lobbies"
+text = "REFRESH LOBBIES"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Test Level 0" to="." method="_on_test_level_0_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Qodot Level 1" to="." method="_on_qodot_level_1_pressed"]
+[node name="exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_037ec")
+text = "EXIT GAME"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

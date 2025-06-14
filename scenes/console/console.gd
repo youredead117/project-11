@@ -148,3 +148,6 @@ func set_gravity(keywords: Array[String]) -> void:
 		Global.root.world.set_gravity.rpc(keywords[1], Global.root.world.player.name)
 	else:
 		con_print("ERROR: no world loaded")
+
+func exit_game(keywords: Array[String]) -> void:
+	Global.exit()

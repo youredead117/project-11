@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="MapsList" load_steps=12 format=3 uid="uid://dpdava41xoise"]
+
+[ext_resource type="Script" uid="uid://dfeg20ma4gk84" path="res://scenes/menu/mapinfo/maps_list.gd" id="1_5cl38"]
+[ext_resource type="Script" uid="uid://bwx5kkgg4nnbg" path="res://scenes/menu/mapinfo/map_item.gd" id="1_waf75"]
+[ext_resource type="PackedScene" uid="uid://chv12hd2n6ryv" path="res://world/qodot_test.tscn" id="2_3ylak"]
+[ext_resource type="Texture2D" uid="uid://kujldjxtq37d" path="res://qodot_levels/levels/brutal/cover.png" id="2_v2qhb"]
+[ext_resource type="Texture2D" uid="uid://dc2ujn2mijuvq" path="res://qodot_levels/levels/test_qodot/cover.jpg" id="4_4qckx"]
+[ext_resource type="PackedScene" uid="uid://cu2lbwt1d1fbm" path="res://world/submarine.tscn" id="5_caqmu"]
+[ext_resource type="Texture2D" uid="uid://bas56jumwtowa" path="res://scenes/menu/mapinfo/cover.jpg" id="6_caqmu"]
+[ext_resource type="PackedScene" uid="uid://ce43tqbiodlqt" path="res://world/shitmap.tscn" id="7_sp8ic"]
+
+[sub_resource type="Resource" id="Resource_v2qhb"]
+script = ExtResource("1_waf75")
+map_name = "Brutal"
+map_description = "Brutal map, brutalist architecture."
+image = ExtResource("2_v2qhb")
+map_scene = ExtResource("2_3ylak")
+metadata/_custom_type_script = "uid://bwx5kkgg4nnbg"
+
+[sub_resource type="Resource" id="Resource_4qckx"]
+script = ExtResource("1_waf75")
+map_name = "Submarine"
+map_description = "A submarine base which has undergone a mysterious lockdown"
+image = ExtResource("4_4qckx")
+map_scene = ExtResource("5_caqmu")
+metadata/_custom_type_script = "uid://bwx5kkgg4nnbg"
+
+[sub_resource type="Resource" id="Resource_sp8ic"]
+script = ExtResource("1_waf75")
+map_name = "Shit map"
+map_description = "Testing"
+image = ExtResource("6_caqmu")
+map_scene = ExtResource("7_sp8ic")
+metadata/_custom_type_script = "uid://bwx5kkgg4nnbg"
+
+[resource]
+script = ExtResource("1_5cl38")
+maps = Array[ExtResource("1_waf75")]([SubResource("Resource_v2qhb"), SubResource("Resource_4qckx"), SubResource("Resource_sp8ic")])
+metadata/_custom_type_script = "uid://dfeg20ma4gk84"
