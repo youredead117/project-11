@@ -52,7 +52,7 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 			var map_name: String = Steam.getLobbyData(lobby_id, "map_name")
 			var map: MapItem = null
 			
-			for i: MapItem in Global.root.menu.map_list:
+			for i: MapItem in Global.root.menu.map_list.maps:
 				if i.map_name == map_name:
 					map = i
 					break

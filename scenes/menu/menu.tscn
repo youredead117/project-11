@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://djxc6yb8mirf2"]
+[gd_scene load_steps=6 format=3 uid="uid://djxc6yb8mirf2"]
 
 [ext_resource type="Script" uid="uid://dtatrrppxfhjb" path="res://scenes/menu/menu.gd" id="1_klgdb"]
+[ext_resource type="Resource" uid="uid://dpdava41xoise" path="res://scenes/menu/mapinfo/MapList.tres" id="2_037ec"]
 [ext_resource type="Theme" uid="uid://covhxv40ferrt" path="res://fonts/theme.theme" id="2_mcvr8"]
 [ext_resource type="FontFile" uid="uid://chxytblf8nj7o" path="res://fonts/monaspace-krypton-latin-400-normal.ttf" id="3_e0arn"]
 
@@ -14,6 +15,7 @@ Label/colors/font_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_klgdb")
+map_list = ExtResource("2_037ec")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 15

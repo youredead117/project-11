@@ -5,10 +5,9 @@ class_name MainMenu
 
 var selected_map: MapItem
 
-var map_list: MapsList
+@export var map_list: MapsList
 
 func _ready() -> void:
-	map_list = load("res://scenes/menu/mapinfo/MapList.tres")
 	select_map(map_list.maps[0])
 	Steam.lobby_match_list.connect(on_lobby_match_list)
 	_on_refresh_pressed()

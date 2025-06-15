@@ -179,11 +179,6 @@ func _ready() -> void:
 	if Global.root.world.is_multiplayer_authority():
 		permissions = Permissions.Host
 	
-	#IP ADDRESS, GONNA DELETE THIS THOUGH
-	for i in IP.get_local_addresses():
-		if i.begins_with("192.168"):
-			Global.root.host_ip = i
-			break
 			
 	#VISUALS
 	$HUDVP/HUD2.show()
@@ -556,6 +551,7 @@ func visual_processes_non_authority() -> void:
 	if !is_multiplayer_authority():
 		if team == Global.root.world.player.team:
 			username_display.no_depth_test = true
+			username_display.transparency = lerp(username_display.transparency, 0.0, 0.02)
 		else:
 			username_display.no_depth_test = false
 			if (global_position - Global.root.world.player.global_position).length() <= 30.0:
@@ -693,6 +689,8 @@ func heal() -> void:
 	ragdoll_cam.deactivate()
 	if !is_multiplayer_authority():
 		$Visual.show()
+	velocity = Vector3.ZERO
+	mover.position = Vector3.ZERO
 
 func ragdoll() -> void:
 	$vis.global_rotation.y = head.global_rotation.y + PI
